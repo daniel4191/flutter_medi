@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: '메디로지스 알림',
       home: Scaffold(
-        appBar: AppBar(title: const Text('메디로지스')),
+        appBar: AppBar(title: const Text('메디로지스', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold))),
         body: pages[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
@@ -65,7 +65,7 @@ class _MyAppState extends State<MyApp> {
                         padding: const EdgeInsets.all(2),
                         decoration: BoxDecoration(
                           color: Colors.red,
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(20),
                         ),
                         constraints: const BoxConstraints(
                           minWidth: 20,
@@ -75,7 +75,7 @@ class _MyAppState extends State<MyApp> {
                           unreadCount > 99 ? '99+' : '$unreadCount',
                           style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 14,
+                            fontSize: 16,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -116,8 +116,8 @@ class HomePage extends StatelessWidget {
         return GestureDetector(
           onTap: () => onRead(index),
           child: Card(
-            color: isRead ? Colors.white : Colors.amber[100],
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            color: isRead ? Colors.white : Colors.amber[800],
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
             child: ListTile(
               title: Text(notifications[index]),
               subtitle: Text(isRead ? '읽음' : '새 알림'),
@@ -158,26 +158,26 @@ class _ManagePageState extends State<ManagePage> {
                     isWork = index == 0;
                   });
                 },
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(12),
                 selectedColor: Colors.white,
                 fillColor: Colors.blue,
                 children: const [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12),
-                    child: Text('출근'),
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Text('출근', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12),
-                    child: Text('퇴근'),
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Text('퇴근', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   ),
                 ],
               ),
             ],
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 25),
           Align(
             alignment: Alignment.centerRight,
-            child: Text('현재 인원: $people명', style: const TextStyle(fontSize: 16)),
+            child: Text('현재 인원: $people명', style: const TextStyle(fontSize: 18)),
           ),
         ],
       ),
